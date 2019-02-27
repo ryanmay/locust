@@ -43,6 +43,7 @@ Listeners should take the following arguments:
 * *name*: Path to the URL that was called (or override name if it was used in the call to the client)
 * *response_time*: Response time in milliseconds
 * *response_length*: Content-length of the response
+* *status_code*: Response status code
 """
 
 request_failure = EventHook()
@@ -55,6 +56,7 @@ Event is fired with the following arguments:
 * *name*: Path to the URL that was called (or override name if it was used in the call to the client)
 * *response_time*: Time in milliseconds until exception was thrown
 * *exception*: Exception instance that was thrown
+* *status_code*: Response status code
 """
 
 locust_error = EventHook()

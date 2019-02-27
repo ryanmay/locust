@@ -137,7 +137,8 @@ class HttpSession(requests.Session):
                     request_type=request_meta["method"], 
                     name=request_meta["name"], 
                     response_time=request_meta["response_time"], 
-                    exception=e, 
+                    exception=e,
+                    status_code=response.status_code,
                 )
             else:
                 events.request_success.fire(
@@ -145,6 +146,7 @@ class HttpSession(requests.Session):
                     name=request_meta["name"],
                     response_time=request_meta["response_time"],
                     response_length=request_meta["content_size"],
+                    status_code=response.status_code,
                 )
             return response
     
